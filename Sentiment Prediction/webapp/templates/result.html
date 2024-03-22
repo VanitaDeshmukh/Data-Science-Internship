@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000; 
+            color: #ffffff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #333333; 
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            width: 90%; 
+            max-width: 500px; 
+            text-align: center;
+        }
+        h1 {
+            color: #ffffff; 
+            margin-bottom: 20px;
+        }
+        .sentiment {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .emojis {
+            margin-right: 10px;
+        }
+        .positive {
+            color: #008000; 
+        }
+        .negative {
+            color: #ff0000; 
+        }
+        .review-text {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #555555; 
+            border: 1px solid #ffffff; 
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your review sentiment is:</h1>
+        <div class="sentiment">
+            <div class="emojis">
+                {% if sentiment == 'Positive' %}
+                    😊
+                {% elif sentiment == 'Negative' %}
+                    😔
+                {% endif %}
+            </div>
+            <div class="text">
+                {% if sentiment == 'Positive' %}
+                    Positive
+                {% elif sentiment == 'Negative' %}
+                    Negative
+                {% endif %}
+            </div>
+        </div>
+        <div class="review-text">
+            {{ review_text }}
+        </div>
+    </div>
+</body>
+</html>
